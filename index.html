@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cab Crew - Premium Cab Service in Pune</title>
+    <title>Cab Crew - Premium Cab Service in Pune | Book Now</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,33 +15,125 @@
         }
         
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #8b5cf6;
-            --accent: #ec4899;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --success: #10b981;
+            --primary: #FF6B35;
+            --primary-dark: #E85A2A;
+            --secondary: #004E89;
+            --accent: #FFD23F;
+            --dark: #1A1A2E;
+            --light: #FFFFFF;
+            --gray: #6C757D;
+            --success: #28A745;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.12);
+            --shadow-lg: 0 16px 48px rgba(0,0,0,0.16);
+            --shadow-xl: 0 24px 64px rgba(0,0,0,0.2);
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: var(--dark);
-            background: var(--light);
+            background: #F8F9FA;
+            overflow-x: hidden;
         }
-        
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.2rem 0;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        }
+
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
+            margin-top: 80px;
+            min-height: 90vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 4rem 2rem;
         }
-        
+
         .hero::before {
             content: '';
             position: absolute;
@@ -46,518 +141,1014 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>');
-            animation: float 20s linear infinite;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
         }
-        
-        @keyframes float {
-            from { transform: translateY(0); }
-            to { transform: translateY(-100px); }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
-        
-        .hero-content {
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
             position: relative;
             z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
         }
-        
-        .hero h1 {
-            font-size: 3.5rem;
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 3rem;
             font-weight: 800;
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            opacity: 0.95;
-            margin-bottom: 2rem;
-        }
-        
-        .hero-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            backdrop-filter: blur(10px);
-        }
-        
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        /* Service Cards */
-        .services {
-            padding: 4rem 0;
-            background: white;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray);
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-        }
-        
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .service-card {
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
-        }
-        
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            margin: 0 auto 1.5rem;
-        }
-        
-        .service-card h3 {
-            font-size: 1.5rem;
+            display: block;
             margin-bottom: 0.5rem;
-            color: var(--dark);
         }
-        
-        .service-card p {
-            color: var(--gray);
+
+        .stat-label {
             font-size: 0.95rem;
+            opacity: 0.9;
         }
-        
-        /* Vehicle Selection */
-        .vehicles {
-            padding: 4rem 0;
-            background: var(--light);
+
+        .hero-image {
+            position: relative;
+            height: 500px;
         }
-        
-        .vehicle-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-        
-        .vehicle-card {
-            background: white;
+
+        .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-        
-        .vehicle-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-            border-color: var(--primary);
-        }
-        
-        .vehicle-image {
-            height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            position: relative;
-        }
-        
-        .vehicle-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: white;
-            color: var(--primary);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-        
-        .vehicle-info {
             padding: 2rem;
+            color: white;
+            box-shadow: var(--shadow-xl);
+            animation: float 6s ease-in-out infinite;
         }
-        
-        .vehicle-name {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
-        
-        .vehicle-price {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 1rem;
+
+        .card-1 {
+            top: 10%;
+            right: 10%;
+            animation-delay: 0s;
         }
-        
-        .vehicle-price span {
-            font-size: 1rem;
-            color: var(--gray);
-            font-weight: 400;
+
+        .card-2 {
+            bottom: 20%;
+            left: 5%;
+            animation-delay: 2s;
         }
-        
-        .vehicle-features {
-            list-style: none;
-            margin-bottom: 1.5rem;
+
+        .card-3 {
+            top: 50%;
+            right: 5%;
+            animation-delay: 4s;
         }
-        
-        .vehicle-features li {
-            padding: 0.5rem 0;
-            color: var(--gray);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .vehicle-features li::before {
-            content: '✓';
-            color: var(--success);
-            font-weight: bold;
+
+        .floating-card h4 {
             font-size: 1.2rem;
-        }
-        
-        /* Booking Form */
-        .booking-section {
-            padding: 4rem 0;
-            background: white;
-        }
-        
-        .booking-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 30px;
-            padding: 3rem;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-            border: 1px solid #e2e8f0;
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
             margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--dark);
-            font-size: 0.95rem;
         }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem 1.2rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            font-family: inherit;
+
+        .floating-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
         }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+
+        /* Trust Badges */
+        .trust-section {
+            background: white;
+            padding: 3rem 2rem;
+            box-shadow: var(--shadow-sm);
         }
-        
-        .radio-group {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-        
-        .radio-card {
-            position: relative;
-        }
-        
-        .radio-card input[type="radio"] {
-            position: absolute;
-            opacity: 0;
-        }
-        
-        .radio-card label {
-            display: block;
-            padding: 1.2rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            font-weight: 600;
-        }
-        
-        .radio-card input[type="radio"]:checked + label {
-            border-color: var(--primary);
-            background: rgba(99, 102, 241, 0.05);
-            color: var(--primary);
-        }
-        
-        .radio-card label:hover {
-            border-color: var(--primary);
-        }
-        
-        .submit-btn {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 1.2rem 3rem;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-        }
-        
-        /* Features */
-        .features {
-            padding: 4rem 0;
-            background: var(--dark);
-            color: white;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+        .trust-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
             gap: 3rem;
         }
-        
-        .feature-item {
-            text-align: center;
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
-        
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: rgba(255,255,255,0.1);
+
+        .trust-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            margin: 0 auto 1rem;
-        }
-        
-        .feature-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .feature-item p {
-            color: rgba(255,255,255,0.7);
-        }
-        
-        /* Footer */
-        .footer {
-            background: #0f172a;
-            color: white;
-            padding: 3rem 2rem 1.5rem;
-            text-align: center;
-        }
-        
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-        
-        .footer h3 {
             font-size: 1.8rem;
+        }
+
+        .trust-text h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .trust-text p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            background: #F8F9FA;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
             margin-bottom: 1rem;
         }
-        
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            margin-bottom: 2rem;
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
         }
-        
-        .contact-item {
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(0, 78, 137, 0.1));
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
             gap: 0.8rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2rem;
+            width: 24px;
+            height: 24px;
+            background: rgba(40, 167, 69, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Fleet Section */
+        .fleet {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3rem;
+        }
+
+        .fleet-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #E9ECEF;
+        }
+
+        .fleet-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .fleet-image {
+            height: 280px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fleet-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+        }
+
+        .fleet-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: white;
+            color: var(--primary);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            box-shadow: var(--shadow-md);
+        }
+
+        .fleet-content {
+            padding: 2.5rem;
+        }
+
+        .fleet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .fleet-name {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .fleet-price {
+            text-align: right;
+        }
+
+        .price-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .price-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 0.3rem;
+        }
+
+        .fleet-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            background: #F8F9FA;
+            border-radius: 12px;
+        }
+
+        .feature-icon {
+            width: 36px;
+            height: 36px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .feature-text {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .book-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1.2rem;
+            border: none;
+            border-radius: 16px;
             font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
         }
-        
+
+        .book-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Booking Section */
+        .booking {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+        }
+
+        .booking-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            padding: 4rem;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            border: 2px solid #E9ECEF;
+            border-radius: 16px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1);
+        }
+
+        .radio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .radio-option {
+            position: relative;
+        }
+
+        .radio-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .radio-label {
+            display: block;
+            padding: 1.5rem;
+            border: 2px solid #E9ECEF;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .radio-option input[type="radio"]:checked + .radio-label {
+            border-color: var(--primary);
+            background: rgba(255, 107, 53, 0.05);
+            color: var(--primary);
+        }
+
+        .radio-label:hover {
+            border-color: var(--primary);
+        }
+
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1.5rem;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 2rem;
+            background: #F8F9FA;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .quote-icon {
+            font-size: 4rem;
+            color: rgba(255, 107, 53, 0.1);
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .rating {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 1.5rem;
-            color: rgba(255,255,255,0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
         }
-        
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
-            .hero h1 {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .section-title {
                 font-size: 2.5rem;
             }
-            
-            .section-title {
-                font-size: 2rem;
+
+            .form-grid,
+            .radio-grid {
+                grid-template-columns: 1fr;
             }
-            
-            .booking-container {
-                padding: 2rem 1.5rem;
+
+            .booking-wrapper {
+                padding: 2rem;
             }
-            
-            .form-row {
+
+            .fleet-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <div class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">🚖 Pune's #1 Cab Service</div>
-            <h1>Cab Crew</h1>
-            <p>Premium rides at your fingertips. Safe, reliable, and affordable cab service across Pune.</p>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">🚖 Cab Crew</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#fleet">Fleet</a></li>
+                <li><a href="#booking">Book Now</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#booking" class="cta-btn">Book a Ride</a>
         </div>
-    </div>
+    </nav>
 
-    <!-- Services Section -->
-    <section class="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Choose the perfect ride for your journey</p>
-            
-            <div class="service-grid">
-                <div class="service-card">
-                    <div class="service-icon">🏙️</div>
-                    <h3>Local Rides</h3>
-                    <p>Quick and convenient rides within Pune city</p>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Premium Rides, Unmatched Comfort</h1>
+                <p>Experience luxury travel across Pune with our professional cab service. Safe, reliable, and always on time.</p>
+                <a href="#booking" class="cta-btn" style="display: inline-block; margin-top: 1rem;">Book Your Ride Now</a>
                 
-                <div class="service-card">
-                    <div class="service-icon">🛣️</div>
-                    <h3>Outstation Trips</h3>
-                    <p>Comfortable long-distance travel to any destination</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Happy Customers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Professional Drivers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Available Service</span>
+                    </div>
                 </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">✈️</div>
-                    <h3>Airport Transfers</h3>
-                    <p>Hassle-free pickup and drop to Pune Airport</p>
+            </div>
+
+            <div class="hero-image">
+                <div class="floating-card card-1">
+                    <h4>⚡ Instant Booking</h4>
+                    <p>Get confirmed in seconds</p>
                 </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">⏰</div>
-                    <h3>Hourly Packages</h3>
-                    <p>4hr, 8hr, 12hr packages for your convenience</p>
+                <div class="floating-card card-2">
+                    <h4>🛡️ Safe & Secure</h4>
+                    <p>Verified drivers only</p>
+                </div>
+                <div class="floating-card card-3">
+                    <h4>💰 Best Rates</h4>
+                    <p>No hidden charges</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Vehicles Section -->
-    <section class="vehicles">
+    <!-- Trust Badges -->
+    <section class="trust-section">
+        <div class="trust-container">
+            <div class="trust-badge">
+                <div class="trust-icon">✓</div>
+                <div class="trust-text">
+                    <h4>Verified Drivers</h4>
+                    <p>Background checked</p>
+                </div>
+            </div>
+            <div class="trust-badge">
+                <div class="trust-icon">🏆</div>
+                <div class="trust-text">
+                    <h4>4.9/5 Rating</h4>
+                    <p>10,000+ reviews</p>
+                </div>
+            </div>
+            <div class="trust-badge">
+                <div class="trust-icon">🔒</div>
+                <div class="trust-text">
+                    <h4>Secure Payments</h4>
+                    <p>Multiple options</p>
+                </div>
+            </div>
+            <div class="trust-badge">
+                <div class="trust-icon">⏱️</div>
+                <div class="trust-text">
+                    <h4>On-Time Guarantee</h4>
+                    <p>99% punctuality</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
         <div class="container">
-            <h2 class="section-title">Choose Your Ride</h2>
-            <p class="section-subtitle">Select from our fleet of well-maintained vehicles</p>
-            
-            <div class="vehicle-grid">
-                <div class="vehicle-card">
-                    <div class="vehicle-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div class="section-header">
+                <span class="section-tag">OUR SERVICES</span>
+                <h2 class="section-title">Travel Your Way</h2>
+                <p class="section-subtitle">From quick city rides to long outstation journeys, we've got you covered with premium service</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏙️</div>
+                    <h3>Local Rides</h3>
+                    <p>Quick and convenient transportation within Pune city limits. Perfect for daily commutes, shopping trips, or meeting friends.</p>
+                    <ul class="service-features">
+                        <li>Point-to-point service</li>
+                        <li>Multiple stops allowed</li>
+                        <li>Real-time tracking</li>
+                        <li>Instant booking</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🛣️</div>
+                    <h3>Outstation Trips</h3>
+                    <p>Comfortable long-distance travel to any destination. Explore Maharashtra and beyond with our reliable outstation service.</p>
+                    <ul class="service-features">
+                        <li>One-way & round trips</li>
+                        <li>Flexible itinerary</li>
+                        <li>Experienced drivers</li>
+                        <li>Well-maintained cars</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">✈️</div>
+                    <h3>Airport Transfers</h3>
+                    <p>Stress-free airport pickups and drops. Never miss a flight with our punctual and professional airport transfer service.</p>
+                    <ul class="service-features">
+                        <li>Flight tracking</li>
+                        <li>Meet & greet service</li>
+                        <li>Luggage assistance</li>
+                        <li>24/7 availability</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">⏰</div>
+                    <h3>Hourly Packages</h3>
+                    <p>Book a cab for multiple hours and use it as per your convenience. Ideal for business meetings or city tours.</p>
+                    <ul class="service-features">
+                        <li>4, 8, 12 hour packages</li>
+                        <li>Flexible usage</li>
+                        <li>Cost-effective</li>
+                        <li>Dedicated driver</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Section -->
+    <section class="fleet" id="fleet">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">OUR FLEET</span>
+                <h2 class="section-title">Choose Your Ride</h2>
+                <p class="section-subtitle">Premium vehicles for every need and budget</p>
+            </div>
+
+            <div class="fleet-grid">
+                <div class="fleet-card">
+                    <div class="fleet-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
                         🚗
-                        <div class="vehicle-badge">Economy</div>
+                        <div class="fleet-badge">Economy</div>
                     </div>
-                    <div class="vehicle-info">
-                        <h3 class="vehicle-name">Hatchback</h3>
-                        <div class="vehicle-price">₹11<span>/km</span></div>
-                        <ul class="vehicle-features">
-                            <li>4 Seater</li>
-                            <li>AC Available</li>
-                            <li>Perfect for city rides</li>
-                            <li>Fuel efficient</li>
-                        </ul>
+                    <div class="fleet-content">
+                        <div class="fleet-header">
+                            <h3 class="fleet-name">Hatchback</h3>
+                            <div class="fleet-price">
+                                <div class="price-amount">₹11</div>
+                                <div class="price-label">per km</div>
+                            </div>
+                        </div>
+                        <div class="fleet-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">👥</div>
+                                <span class="feature-text">4 Seater</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">❄️</div>
+                                <span class="feature-text">AC Available</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🎒</div>
+                                <span class="feature-text">2 Bags</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">⚡</div>
+                                <span class="feature-text">Fuel Efficient</span>
+                            </div>
+                        </div>
+                        <button class="book-btn" onclick="scrollToBooking('Hatchback')">Book Now</button>
                     </div>
                 </div>
-                
-                <div class="vehicle-card">
-                    <div class="vehicle-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+
+                <div class="fleet-card">
+                    <div class="fleet-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
                         🚙
-                        <div class="vehicle-badge">Popular</div>
+                        <div class="fleet-badge">Popular</div>
                     </div>
-                    <div class="vehicle-info">
-                        <h3 class="vehicle-name">Sedan</h3>
-                        <div class="vehicle-price">₹13<span>/km</span></div>
-                        <ul class="vehicle-features">
-                            <li>4 Seater</li>
-                            <li>Spacious & Comfortable</li>
-                            <li>Extra luggage space</li>
-                            <li>Premium experience</li>
-                        </ul>
+                    <div class="fleet-content">
+                        <div class="fleet-header">
+                            <h3 class="fleet-name">Sedan</h3>
+                            <div class="fleet-price">
+                                <div class="price-amount">₹13</div>
+                                <div class="price-label">per km</div>
+                            </div>
+                        </div>
+                        <div class="fleet-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">👥</div>
+                                <span class="feature-text">4 Seater</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🛋️</div>
+                                <span class="feature-text">Spacious</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🎒</div>
+                                <span class="feature-text">3 Bags</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">⭐</div>
+                                <span class="feature-text">Premium</span>
+                            </div>
+                        </div>
+                        <button class="book-btn" onclick="scrollToBooking('Sedan')">Book Now</button>
                     </div>
                 </div>
-                
-                <div class="vehicle-card">
-                    <div class="vehicle-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+
+                <div class="fleet-card">
+                    <div class="fleet-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
                         🚐
-                        <div class="vehicle-badge">Premium</div>
+                        <div class="fleet-badge">Luxury</div>
                     </div>
-                    <div class="vehicle-info">
-                        <h3 class="vehicle-name">SUV</h3>
-                        <div class="vehicle-price">₹15<span>/km</span></div>
-                        <ul class="vehicle-features">
-                            <li>6-7 Seater</li>
-                            <li>Perfect for families</li>
-                            <li>Maximum comfort</li>
-                            <li>Outstation ready</li>
-                        </ul>
+                    <div class="fleet-content">
+                        <div class="fleet-header">
+                            <h3 class="fleet-name">SUV</h3>
+                            <div class="fleet-price">
+                                <div class="price-amount">₹15</div>
+                                <div class="price-label">per km</div>
+                            </div>
+                        </div>
+                        <div class="fleet-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">👥</div>
+                                <span class="feature-text">6-7 Seater</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🏆</div>
+                                <span class="feature-text">Max Comfort</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🎒</div>
+                                <span class="feature-text">5 Bags</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🛣️</div>
+                                <span class="feature-text">Outstation</span>
+                            </div>
+                        </div>
+                        <button class="book-btn" onclick="scrollToBooking('SUV')">Book Now</button>
                     </div>
                 </div>
             </div>
@@ -565,181 +1156,234 @@
     </section>
 
     <!-- Booking Section -->
-    <section class="booking-section">
+    <section class="booking" id="booking">
         <div class="container">
-            <h2 class="section-title">Book Your Ride</h2>
-            <p class="section-subtitle">Fill in the details and get instant quote on WhatsApp</p>
-            
-            <div class="booking-container">
+            <div class="section-header" style="color: white;">
+                <span class="section-tag" style="background: rgba(255,255,255,0.2); color: white;">BOOK NOW</span>
+                <h2 class="section-title" style="color: white;">Reserve Your Ride</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Fill in your details and get instant quote on WhatsApp</p>
+            </div>
+
+            <div class="booking-wrapper">
                 <form id="bookingForm">
-                    <!-- Service Type -->
-                    <div class="form-group">
-                        <label>Select Service Type *</label>
-                        <div class="radio-group">
-                            <div class="radio-card">
+                    <div class="form-group full-width">
+                        <label class="form-label">Select Service Type *</label>
+                        <div class="radio-grid">
+                            <div class="radio-option">
                                 <input type="radio" id="local" name="serviceType" value="Local Ride" required>
-                                <label for="local">🏙️ Local Ride</label>
+                                <label for="local" class="radio-label">🏙️ Local Ride</label>
                             </div>
-                            <div class="radio-card">
+                            <div class="radio-option">
                                 <input type="radio" id="outstation" name="serviceType" value="Outstation">
-                                <label for="outstation">🛣️ Outstation</label>
+                                <label for="outstation" class="radio-label">🛣️ Outstation</label>
                             </div>
-                            <div class="radio-card">
+                            <div class="radio-option">
                                 <input type="radio" id="airport" name="serviceType" value="Airport Transfer">
-                                <label for="airport">✈️ Airport</label>
+                                <label for="airport" class="radio-label">✈️ Airport</label>
                             </div>
-                            <div class="radio-card">
+                            <div class="radio-option">
                                 <input type="radio" id="hourly" name="serviceType" value="Hourly Package">
-                                <label for="hourly">⏰ Hourly</label>
+                                <label for="hourly" class="radio-label">⏰ Hourly</label>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Personal Details -->
-                    <div class="form-row">
+                    <div class="form-grid">
                         <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" required placeholder="Enter your name">
+                            <label class="form-label" for="name">Full Name *</label>
+                            <input type="text" id="name" class="form-input" required placeholder="Enter your name">
                         </div>
-                        
+
                         <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" required placeholder="+91 XXXXX XXXXX" pattern="[0-9]{10}">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email (Optional)</label>
-                        <input type="email" id="email" placeholder="your@email.com">
-                    </div>
-
-                    <!-- Trip Details -->
-                    <div class="form-group">
-                        <label for="pickup">Pickup Location *</label>
-                        <input type="text" id="pickup" required placeholder="Enter pickup address">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="dropoff">Drop-off Location *</label>
-                        <input type="text" id="dropoff" required placeholder="Enter destination">
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="date">Pickup Date *</label>
-                            <input type="date" id="date" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="time">Pickup Time *</label>
-                            <input type="time" id="time" required>
+                            <label class="form-label" for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" class="form-input" required placeholder="+91 XXXXX XXXXX" pattern="[0-9]{10}">
                         </div>
                     </div>
 
-                    <!-- Vehicle Selection -->
-                    <div class="form-group">
-                        <label>Select Vehicle *</label>
-                        <div class="radio-group">
-                            <div class="radio-card">
+                    <div class="form-group full-width">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input type="email" id="email" class="form-input" placeholder="your@email.com">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="form-label" for="pickup">Pickup Location *</label>
+                        <input type="text" id="pickup" class="form-input" required placeholder="Enter pickup address in Pune">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="form-label" for="dropoff">Drop-off Location *</label>
+                        <input type="text" id="dropoff" class="form-input" required placeholder="Enter destination">
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="date">Pickup Date *</label>
+                            <input type="date" id="date" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="time">Pickup Time *</label>
+                            <input type="time" id="time" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="form-label">Select Vehicle *</label>
+                        <div class="radio-grid">
+                            <div class="radio-option">
                                 <input type="radio" id="hatchback" name="vehicle" value="Hatchback - ₹11/km" required>
-                                <label for="hatchback">🚗 Hatchback<br><small>₹11/km</small></label>
+                                <label for="hatchback" class="radio-label">🚗 Hatchback<br><small>₹11/km</small></label>
                             </div>
-                            <div class="radio-card">
+                            <div class="radio-option">
                                 <input type="radio" id="sedan" name="vehicle" value="Sedan - ₹13/km">
-                                <label for="sedan">🚙 Sedan<br><small>₹13/km</small></label>
+                                <label for="sedan" class="radio-label">🚙 Sedan<br><small>₹13/km</small></label>
                             </div>
-                            <div class="radio-card">
+                            <div class="radio-option">
                                 <input type="radio" id="suv" name="vehicle" value="SUV - ₹15/km">
-                                <label for="suv">🚐 SUV<br><small>₹15/km</small></label>
+                                <label for="suv" class="radio-label">🚐 SUV<br><small>₹15/km</small></label>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Hourly Package (shown only when hourly is selected) -->
-                    <div class="form-group" id="hourlyPackage" style="display: none;">
-                        <label for="package">Select Package *</label>
-                        <select id="package">
-                            <option value="">Choose package duration</option>
+                    <div class="form-group full-width" id="hourlyPackage" style="display: none;">
+                        <label class="form-label" for="package">Select Package Duration *</label>
+                        <select id="package" class="form-select">
+                            <option value="">Choose package</option>
                             <option value="4 Hours">4 Hours</option>
                             <option value="8 Hours">8 Hours</option>
                             <option value="12 Hours">12 Hours</option>
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <label for="notes">Additional Requirements</label>
-                        <textarea id="notes" rows="3" placeholder="Any special requests? (e.g., child seat, extra stops, etc.)"></textarea>
+                    <div class="form-group full-width">
+                        <label class="form-label" for="notes">Additional Requirements</label>
+                        <textarea id="notes" class="form-textarea" rows="4" placeholder="Any special requests? (e.g., child seat, extra stops, luggage details)"></textarea>
                     </div>
 
-                    <button type="submit" class="submit-btn">Get Instant Quote on WhatsApp</button>
+                    <button type="submit" class="submit-button">Get Instant Quote on WhatsApp</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
+    <!-- Testimonials -->
+    <section class="testimonials">
         <div class="container">
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Safe & Secure</h3>
-                    <p>Verified drivers with background checks</p>
+            <div class="section-header">
+                <span class="section-tag">TESTIMONIALS</span>
+                <h2 class="section-title">What Our Customers Say</h2>
+                <p class="section-subtitle">Real experiences from real people</p>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">"Excellent service! The driver was punctual, professional, and the car was spotless. Used them for my airport transfer and couldn't be happier. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RS</div>
+                        <div class="author-info">
+                            <h4>Rahul Sharma</h4>
+                            <p>Business Traveler</p>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="feature-item">
-                    <div class="feature-icon">💰</div>
-                    <h3>Best Prices</h3>
-                    <p>Transparent pricing with no hidden charges</p>
+
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">"Best cab service in Pune! Transparent pricing, no hidden charges, and always on time. I've been using Cab Crew for 6 months now for my daily office commute."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PD</div>
+                        <div class="author-info">
+                            <h4>Priya Deshmukh</h4>
+                            <p>Software Engineer</p>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="feature-item">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Quick Response</h3>
-                    <p>Instant booking confirmation</p>
-                </div>
-                
-                <div class="feature-item">
-                    <div class="feature-icon">🌟</div>
-                    <h3>24/7 Support</h3>
-                    <p>Round the clock customer service</p>
+
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">"Took their SUV for an outstation trip to Lonavala. Comfortable ride, experienced driver who knew all the routes. Great value for money. Will definitely book again!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AK</div>
+                        <div class="author-info">
+                            <h4>Amit Kulkarni</h4>
+                            <p>Family Traveler</p>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <h3>📞 Contact Cab Crew</h3>
-            <div class="contact-info">
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>🚖 Cab Crew</h3>
+                <p>Pune's most trusted premium cab service. We're committed to providing safe, reliable, and comfortable transportation for all your travel needs.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#fleet">Our Fleet</a></li>
+                    <li><a href="#booking">Book Now</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul class="footer-links">
+                    <li><a href="#booking">Local Rides</a></li>
+                    <li><a href="#booking">Outstation</a></li>
+                    <li><a href="#booking">Airport Transfer</a></li>
+                    <li><a href="#booking">Hourly Packages</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact Us</h4>
                 <div class="contact-item">
-                    <span>📱</span>
+                    <div class="contact-icon">📱</div>
                     <span>+91 7507559000</span>
                 </div>
                 <div class="contact-item">
-                    <span>📧</span>
+                    <div class="contact-icon">📧</div>
                     <span>bookings@cabcrew.com</span>
                 </div>
                 <div class="contact-item">
-                    <span>📍</span>
-                    <span>Serving all across Pune</span>
+                    <div class="contact-icon">📍</div>
+                    <span>Pune, Maharashtra</span>
                 </div>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
-            <p>&copy; 2024 Cab Crew Pune. All rights reserved.</p>
-            <p style="margin-top: 0.5rem;">Reliable • Affordable • Professional</p>
+            <p>&copy; 2024 Cab Crew Pune. All rights reserved. | Reliable • Professional • Trusted</p>
         </div>
     </footer>
 
     <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
         // Set minimum date to today
         const today = new Date().toISOString().split('T')[0];
         document.getElementById('date').min = today;
 
-        // Show/hide hourly package dropdown
+        // Show/hide hourly package
         const serviceTypes = document.querySelectorAll('input[name="serviceType"]');
         const hourlyPackageDiv = document.getElementById('hourlyPackage');
         
@@ -754,6 +1398,16 @@
                 }
             });
         });
+
+        // Scroll to booking with pre-selected vehicle
+        function scrollToBooking(vehicle) {
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => {
+                if (vehicle === 'Hatchback') document.getElementById('hatchback').checked = true;
+                if (vehicle === 'Sedan') document.getElementById('sedan').checked = true;
+                if (vehicle === 'SUV') document.getElementById('suv').checked = true;
+            }, 500);
+        }
 
         // Form submission
         document.getElementById('bookingForm').addEventListener('submit', function(e) {
@@ -775,30 +1429,39 @@
                 packageInfo = `Package: ${document.getElementById('package').value}%0A`;
             }
             
-            // Create WhatsApp message
-            const message = `*🚖 NEW BOOKING - CAB CREW*%0A%0A` +
-                `*Service:* ${serviceType}%0A` +
-                `*Name:* ${name}%0A` +
-                `*Phone:* ${phone}%0A` +
-                `*Email:* ${email || 'Not provided'}%0A%0A` +
-                `*📍 Trip Details:*%0A` +
+            const message = `*🚖 NEW PREMIUM BOOKING - CAB CREW*%0A%0A` +
+                `━━━━━━━━━━━━━━━━━━━━%0A` +
+                `*Service Type:* ${serviceType}%0A%0A` +
+                `*👤 Customer Details:*%0A` +
+                `Name: ${name}%0A` +
+                `Phone: ${phone}%0A` +
+                `Email: ${email || 'Not provided'}%0A%0A` +
+                `*📍 Trip Information:*%0A` +
                 `Pickup: ${pickup}%0A` +
                 `Drop-off: ${dropoff}%0A` +
                 `Date: ${date}%0A` +
                 `Time: ${time}%0A%0A` +
-                `*🚗 Vehicle:* ${vehicle}%0A` +
+                `*🚗 Vehicle Selected:* ${vehicle}%0A` +
                 packageInfo +
-                `*Notes:* ${notes || 'None'}%0A%0A` +
-                `_Please provide fare estimate_`;
+                `*📝 Special Requirements:*%0A${notes || 'None'}%0A%0A` +
+                `━━━━━━━━━━━━━━━━━━━━%0A` +
+                `_Please provide fare estimate and confirm availability_`;
             
-            // WhatsApp number
             const whatsappNumber = '917507559000';
-            
-            // Open WhatsApp
             window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
             
-            // Show confirmation
-            alert('✅ Redirecting to WhatsApp! You will receive your fare quote shortly.');
+            alert('✅ Redirecting to WhatsApp! Our team will send you a personalized quote within minutes.');
+        });
+
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
         });
     </script>
 </body>
