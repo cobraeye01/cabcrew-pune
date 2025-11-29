@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cab Crew - Pune's Trusted Cab Service</title>
+    <title>Cab Crew - Premium Cab Service in Pune</title>
     <style>
         * {
             margin: 0;
@@ -11,66 +11,268 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--dark);
+            background: var(--light);
         }
         
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
-            padding: 2rem 1rem;
+            padding: 4rem 2rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>');
+            animation: float 20s linear infinite;
         }
         
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+        @keyframes float {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100px); }
         }
         
-        .container {
+        .hero-content {
+            position: relative;
+            z-index: 1;
             max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            margin: 0 auto;
         }
         
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
         }
         
-        .feature {
-            text-align: center;
-            padding: 1.5rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-            transition: transform 0.3s;
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
         }
         
-        .feature:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            backdrop-filter: blur(10px);
         }
         
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
         
-        .booking-form {
+        /* Service Cards */
+        .services {
+            padding: 4rem 0;
             background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .service-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
             padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin: 2rem 0;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .service-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        /* Vehicle Selection */
+        .vehicles {
+            padding: 4rem 0;
+            background: var(--light);
+        }
+        
+        .vehicle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .vehicle-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .vehicle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+            border-color: var(--primary);
+        }
+        
+        .vehicle-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+        }
+        
+        .vehicle-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .vehicle-info {
+            padding: 2rem;
+        }
+        
+        .vehicle-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .vehicle-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .vehicle-price span {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+        
+        .vehicle-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .vehicle-features li {
+            padding: 0.5rem 0;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .vehicle-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Booking Form */
+        .booking-section {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .booking-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
         
         .form-group {
@@ -81,214 +283,522 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
-            color: #555;
+            color: var(--dark);
+            font-size: 0.95rem;
         }
         
         .form-group input,
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
             font-size: 1rem;
-            transition: border-color 0.3s;
+            transition: all 0.3s ease;
+            font-family: inherit;
         }
         
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        }
+        
+        .radio-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .radio-card {
+            position: relative;
+        }
+        
+        .radio-card input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+        
+        .radio-card label {
+            display: block;
+            padding: 1.2rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .radio-card input[type="radio"]:checked + label {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.05);
+            color: var(--primary);
+        }
+        
+        .radio-card label:hover {
+            border-color: var(--primary);
         }
         
         .submit-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 1rem 2rem;
+            padding: 1.2rem 3rem;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             width: 100%;
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .submit-btn:hover {
-            transform: scale(1.02);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+        
+        /* Features */
+        .features {
+            padding: 4rem 0;
+            background: var(--dark);
+            color: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .feature-item {
+            text-align: center;
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+        }
+        
+        .feature-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-item p {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: white;
+            padding: 3rem 2rem 1.5rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .footer h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
         }
         
         .contact-info {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            margin: 2rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
         }
         
-        .contact-info h3 {
-            margin-bottom: 1rem;
-            color: #667eea;
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            font-size: 1.1rem;
         }
         
-        .footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            color: rgba(255,255,255,0.6);
         }
         
         @media (max-width: 768px) {
-            .header h1 {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
                 font-size: 2rem;
             }
             
-            .features {
+            .booking-container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .form-row {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>🚖 Cab Crew</h1>
-        <p>Pune's Most Trusted Cab Service</p>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🚖 Pune's #1 Cab Service</div>
+            <h1>Cab Crew</h1>
+            <p>Premium rides at your fingertips. Safe, reliable, and affordable cab service across Pune.</p>
+        </div>
     </div>
-    
-    <div class="container">
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">⚡</div>
-                <h3>Quick Booking</h3>
-                <p>Book in under 2 minutes</p>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Choose the perfect ride for your journey</p>
+            
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏙️</div>
+                    <h3>Local Rides</h3>
+                    <p>Quick and convenient rides within Pune city</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🛣️</div>
+                    <h3>Outstation Trips</h3>
+                    <p>Comfortable long-distance travel to any destination</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">✈️</div>
+                    <h3>Airport Transfers</h3>
+                    <p>Hassle-free pickup and drop to Pune Airport</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">⏰</div>
+                    <h3>Hourly Packages</h3>
+                    <p>4hr, 8hr, 12hr packages for your convenience</p>
+                </div>
             </div>
-            <div class="feature">
-                <div class="feature-icon">💰</div>
-                <h3>Best Rates</h3>
-                <p>Affordable & transparent pricing</p>
+        </div>
+    </section>
+
+    <!-- Vehicles Section -->
+    <section class="vehicles">
+        <div class="container">
+            <h2 class="section-title">Choose Your Ride</h2>
+            <p class="section-subtitle">Select from our fleet of well-maintained vehicles</p>
+            
+            <div class="vehicle-grid">
+                <div class="vehicle-card">
+                    <div class="vehicle-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        🚗
+                        <div class="vehicle-badge">Economy</div>
+                    </div>
+                    <div class="vehicle-info">
+                        <h3 class="vehicle-name">Hatchback</h3>
+                        <div class="vehicle-price">₹11<span>/km</span></div>
+                        <ul class="vehicle-features">
+                            <li>4 Seater</li>
+                            <li>AC Available</li>
+                            <li>Perfect for city rides</li>
+                            <li>Fuel efficient</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="vehicle-card">
+                    <div class="vehicle-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        🚙
+                        <div class="vehicle-badge">Popular</div>
+                    </div>
+                    <div class="vehicle-info">
+                        <h3 class="vehicle-name">Sedan</h3>
+                        <div class="vehicle-price">₹13<span>/km</span></div>
+                        <ul class="vehicle-features">
+                            <li>4 Seater</li>
+                            <li>Spacious & Comfortable</li>
+                            <li>Extra luggage space</li>
+                            <li>Premium experience</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="vehicle-card">
+                    <div class="vehicle-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        🚐
+                        <div class="vehicle-badge">Premium</div>
+                    </div>
+                    <div class="vehicle-info">
+                        <h3 class="vehicle-name">SUV</h3>
+                        <div class="vehicle-price">₹15<span>/km</span></div>
+                        <ul class="vehicle-features">
+                            <li>6-7 Seater</li>
+                            <li>Perfect for families</li>
+                            <li>Maximum comfort</li>
+                            <li>Outstation ready</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="feature">
-                <div class="feature-icon">🛡️</div>
-                <h3>Safe & Reliable</h3>
-                <p>Verified drivers, clean cabs</p>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking-section">
+        <div class="container">
+            <h2 class="section-title">Book Your Ride</h2>
+            <p class="section-subtitle">Fill in the details and get instant quote on WhatsApp</p>
+            
+            <div class="booking-container">
+                <form id="bookingForm">
+                    <!-- Service Type -->
+                    <div class="form-group">
+                        <label>Select Service Type *</label>
+                        <div class="radio-group">
+                            <div class="radio-card">
+                                <input type="radio" id="local" name="serviceType" value="Local Ride" required>
+                                <label for="local">🏙️ Local Ride</label>
+                            </div>
+                            <div class="radio-card">
+                                <input type="radio" id="outstation" name="serviceType" value="Outstation">
+                                <label for="outstation">🛣️ Outstation</label>
+                            </div>
+                            <div class="radio-card">
+                                <input type="radio" id="airport" name="serviceType" value="Airport Transfer">
+                                <label for="airport">✈️ Airport</label>
+                            </div>
+                            <div class="radio-card">
+                                <input type="radio" id="hourly" name="serviceType" value="Hourly Package">
+                                <label for="hourly">⏰ Hourly</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personal Details -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" required placeholder="Enter your name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" required placeholder="+91 XXXXX XXXXX" pattern="[0-9]{10}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email (Optional)</label>
+                        <input type="email" id="email" placeholder="your@email.com">
+                    </div>
+
+                    <!-- Trip Details -->
+                    <div class="form-group">
+                        <label for="pickup">Pickup Location *</label>
+                        <input type="text" id="pickup" required placeholder="Enter pickup address">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dropoff">Drop-off Location *</label>
+                        <input type="text" id="dropoff" required placeholder="Enter destination">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Pickup Date *</label>
+                            <input type="date" id="date" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="time">Pickup Time *</label>
+                            <input type="time" id="time" required>
+                        </div>
+                    </div>
+
+                    <!-- Vehicle Selection -->
+                    <div class="form-group">
+                        <label>Select Vehicle *</label>
+                        <div class="radio-group">
+                            <div class="radio-card">
+                                <input type="radio" id="hatchback" name="vehicle" value="Hatchback - ₹11/km" required>
+                                <label for="hatchback">🚗 Hatchback<br><small>₹11/km</small></label>
+                            </div>
+                            <div class="radio-card">
+                                <input type="radio" id="sedan" name="vehicle" value="Sedan - ₹13/km">
+                                <label for="sedan">🚙 Sedan<br><small>₹13/km</small></label>
+                            </div>
+                            <div class="radio-card">
+                                <input type="radio" id="suv" name="vehicle" value="SUV - ₹15/km">
+                                <label for="suv">🚐 SUV<br><small>₹15/km</small></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hourly Package (shown only when hourly is selected) -->
+                    <div class="form-group" id="hourlyPackage" style="display: none;">
+                        <label for="package">Select Package *</label>
+                        <select id="package">
+                            <option value="">Choose package duration</option>
+                            <option value="4 Hours">4 Hours</option>
+                            <option value="8 Hours">8 Hours</option>
+                            <option value="12 Hours">12 Hours</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Additional Requirements</label>
+                        <textarea id="notes" rows="3" placeholder="Any special requests? (e.g., child seat, extra stops, etc.)"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Get Instant Quote on WhatsApp</button>
+                </form>
             </div>
-            <div class="feature">
-                <div class="feature-icon">⏰</div>
-                <h3>24/7 Service</h3>
-                <p>Available round the clock</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Safe & Secure</h3>
+                    <p>Verified drivers with background checks</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <h3>Best Prices</h3>
+                    <p>Transparent pricing with no hidden charges</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Quick Response</h3>
+                    <p>Instant booking confirmation</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🌟</div>
+                    <h3>24/7 Support</h3>
+                    <p>Round the clock customer service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>📞 Contact Cab Crew</h3>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>+91 7507559000</span>
+                </div>
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>bookings@cabcrew.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Serving all across Pune</span>
+                </div>
             </div>
         </div>
         
-        <div class="booking-form">
-            <h2 style="text-align: center; margin-bottom: 1.5rem; color: #667eea;">Book Your Ride</h2>
-            <form id="bookingForm">
-                <div class="form-group">
-                    <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your name">
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Phone Number *</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="10-digit mobile number">
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="your@email.com">
-                </div>
-                
-                <div class="form-group">
-                    <label for="pickup">Pickup Location *</label>
-                    <input type="text" id="pickup" name="pickup" required placeholder="Enter pickup address in Pune">
-                </div>
-                
-                <div class="form-group">
-                    <label for="dropoff">Drop-off Location *</label>
-                    <input type="text" id="dropoff" name="dropoff" required placeholder="Enter destination">
-                </div>
-                
-                <div class="form-group">
-                    <label for="date">Pickup Date *</label>
-                    <input type="date" id="date" name="date" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="time">Pickup Time *</label>
-                    <input type="time" id="time" name="time" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="cabType">Cab Type *</label>
-                    <select id="cabType" name="cabType" required>
-                        <option value="">Select cab type</option>
-                        <option value="sedan">Sedan (4 seater)</option>
-                        <option value="suv">SUV (6-7 seater)</option>
-                        <option value="mini">Mini (4 seater - Economy)</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="notes">Additional Notes</label>
-                    <textarea id="notes" name="notes" rows="3" placeholder="Any special requirements?"></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">Book Now</button>
-            </form>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Cab Crew Pune. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">Reliable • Affordable • Professional</p>
         </div>
-        
-        <div class="contact-info">
-            <h3>📞 Contact Us</h3>
-            <p><strong>Phone:</strong> +91-XXXXXXXXXX</p>
-            <p><strong>Email:</strong> bookings@cabcrew.com</p>
-            <p><strong>Service Area:</strong> All across Pune</p>
-        </div>
-    </div>
-    
-    <div class="footer">
-        <p>&copy; 2024 Cab Crew Pune. All rights reserved.</p>
-        <p>Reliable • Affordable • Safe</p>
-    </div>
-    
+    </footer>
+
     <script>
         // Set minimum date to today
-        document.getElementById('date').min = new Date().toISOString().split('T')[0];
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('date').min = today;
+
+        // Show/hide hourly package dropdown
+        const serviceTypes = document.querySelectorAll('input[name="serviceType"]');
+        const hourlyPackageDiv = document.getElementById('hourlyPackage');
         
+        serviceTypes.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'Hourly Package') {
+                    hourlyPackageDiv.style.display = 'block';
+                    document.getElementById('package').required = true;
+                } else {
+                    hourlyPackageDiv.style.display = 'none';
+                    document.getElementById('package').required = false;
+                }
+            });
+        });
+
+        // Form submission
         document.getElementById('bookingForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const formData = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value,
-                pickup: document.getElementById('pickup').value,
-                dropoff: document.getElementById('dropoff').value,
-                date: document.getElementById('date').value,
-                time: document.getElementById('time').value,
-                cabType: document.getElementById('cabType').value,
-                notes: document.getElementById('notes').value
-            };
+            const serviceType = document.querySelector('input[name="serviceType"]:checked').value;
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const pickup = document.getElementById('pickup').value;
+            const dropoff = document.getElementById('dropoff').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const vehicle = document.querySelector('input[name="vehicle"]:checked').value;
+            const notes = document.getElementById('notes').value;
+            
+            let packageInfo = '';
+            if (serviceType === 'Hourly Package') {
+                packageInfo = `Package: ${document.getElementById('package').value}%0A`;
+            }
             
             // Create WhatsApp message
-            const message = `*New Cab Booking - Cab Crew*%0A%0A` +
-                `Name: ${formData.name}%0A` +
-                `Phone: ${formData.phone}%0A` +
-                `Email: ${formData.email}%0A` +
-                `Pickup: ${formData.pickup}%0A` +
-                `Drop-off: ${formData.dropoff}%0A` +
-                `Date: ${formData.date}%0A` +
-                `Time: ${formData.time}%0A` +
-                `Cab Type: ${formData.cabType}%0A` +
-                `Notes: ${formData.notes}`;
+            const message = `*🚖 NEW BOOKING - CAB CREW*%0A%0A` +
+                `*Service:* ${serviceType}%0A` +
+                `*Name:* ${name}%0A` +
+                `*Phone:* ${phone}%0A` +
+                `*Email:* ${email || 'Not provided'}%0A%0A` +
+                `*📍 Trip Details:*%0A` +
+                `Pickup: ${pickup}%0A` +
+                `Drop-off: ${dropoff}%0A` +
+                `Date: ${date}%0A` +
+                `Time: ${time}%0A%0A` +
+                `*🚗 Vehicle:* ${vehicle}%0A` +
+                packageInfo +
+                `*Notes:* ${notes || 'None'}%0A%0A` +
+                `_Please provide fare estimate_`;
             
-            // Replace with your WhatsApp number (with country code, no + or spaces)
-            const whatsappNumber = '919XXXXXXXXX';
+            // WhatsApp number
+            const whatsappNumber = '917507559000';
             
             // Open WhatsApp
             window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
             
-            alert('Redirecting to WhatsApp to confirm your booking!');
+            // Show confirmation
+            alert('✅ Redirecting to WhatsApp! You will receive your fare quote shortly.');
         });
     </script>
 </body>
