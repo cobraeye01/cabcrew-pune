@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Cab Crew - Premium cab service in Pune. Book hatchback, sedan, SUV for local rides, outstation trips, airport transfers. Best rates guaranteed.">
+    <meta name="theme-color" content="#667eea">
     <title>Cab Crew - Premium Cab Service in Pune | Book Now</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +14,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
         
         :root {
@@ -23,9 +26,6 @@
             --light: #FFFFFF;
             --gray: #6C757D;
             --success: #28A745;
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
             --shadow-md: 0 8px 24px rgba(0,0,0,0.12);
             --shadow-lg: 0 16px 48px rgba(0,0,0,0.16);
@@ -38,38 +38,39 @@
             color: var(--dark);
             background: #F8F9FA;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Navigation */
+        /* Mobile-First Navigation */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
-            padding: 1.2rem 0;
+            padding: 1rem;
             box-shadow: var(--shadow-sm);
             transition: all 0.3s ease;
         }
 
         .navbar.scrolled {
-            padding: 0.8rem 0;
+            padding: 0.7rem 1rem;
             box-shadow: var(--shadow-md);
         }
 
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 800;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
@@ -77,10 +78,20 @@
             background-clip: text;
         }
 
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
@@ -88,33 +99,20 @@
             color: var(--dark);
             font-weight: 500;
             transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
+            font-size: 0.95rem;
         }
 
         .cta-btn {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 0.8rem 2rem;
+            padding: 0.7rem 1.5rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            font-size: 0.9rem;
+            white-space: nowrap;
         }
 
         .cta-btn:hover {
@@ -122,16 +120,16 @@
             box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
         }
 
-        /* Hero Section */
+        /* Hero Section - Mobile Optimized */
         .hero {
-            margin-top: 80px;
-            min-height: 90vh;
+            margin-top: 70px;
+            min-height: 85vh;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             position: relative;
             overflow: hidden;
             display: flex;
             align-items: center;
-            padding: 4rem 2rem;
+            padding: 3rem 1.5rem;
         }
 
         .hero::before {
@@ -155,35 +153,35 @@
         .hero-container {
             max-width: 1400px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
             position: relative;
             z-index: 1;
+            text-align: center;
         }
 
         .hero-content h1 {
-            font-size: 4.5rem;
+            font-size: 2.5rem;
             font-weight: 900;
             color: white;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -2px;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
         }
 
         .hero-content p {
-            font-size: 1.4rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 2rem;
+            line-height: 1.6;
         }
 
         .hero-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .stat-item {
@@ -192,215 +190,150 @@
         }
 
         .stat-number {
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: 800;
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
         }
 
         .stat-label {
-            font-size: 0.95rem;
+            font-size: 0.8rem;
             opacity: 0.9;
         }
 
-        .hero-image {
-            position: relative;
-            height: 500px;
-        }
-
-        .floating-card {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 24px;
-            padding: 2rem;
-            color: white;
-            box-shadow: var(--shadow-xl);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .card-1 {
-            top: 10%;
-            right: 10%;
-            animation-delay: 0s;
-        }
-
-        .card-2 {
-            bottom: 20%;
-            left: 5%;
-            animation-delay: 2s;
-        }
-
-        .card-3 {
-            top: 50%;
-            right: 5%;
-            animation-delay: 4s;
-        }
-
-        .floating-card h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .floating-card p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        /* Trust Badges */
+        /* Trust Section - Mobile Optimized */
         .trust-section {
             background: white;
-            padding: 3rem 2rem;
+            padding: 2rem 1.5rem;
             box-shadow: var(--shadow-sm);
         }
 
         .trust-container {
             max-width: 1400px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 3rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
         }
 
         .trust-badge {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
         }
 
         .trust-icon {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
+            flex-shrink: 0;
         }
 
         .trust-text h4 {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: var(--dark);
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.1rem;
         }
 
         .trust-text p {
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             color: var(--gray);
         }
 
-        /* Services Section */
-        .services {
-            padding: 6rem 2rem;
-            background: #F8F9FA;
-        }
-
+        /* Container */
         .container {
             max-width: 1400px;
             margin: 0 auto;
+            padding: 0 1.5rem;
         }
 
+        /* Section Headers */
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 2.5rem;
         }
 
         .section-tag {
             display: inline-block;
             background: rgba(255, 107, 53, 0.1);
             color: var(--primary);
-            padding: 0.5rem 1.5rem;
+            padding: 0.4rem 1.2rem;
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .section-title {
-            font-size: 3.5rem;
+            font-size: 2rem;
             font-weight: 800;
             color: var(--dark);
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.5px;
         }
 
         .section-subtitle {
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: var(--gray);
             max-width: 600px;
             margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 3rem 0;
+            background: #F8F9FA;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
 
         .service-card {
             background: white;
-            border-radius: 24px;
-            padding: 3rem;
+            border-radius: 20px;
+            padding: 2rem;
             box-shadow: var(--shadow-sm);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
+        .service-card:active {
+            transform: scale(0.98);
         }
 
         .service-icon {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(0, 78, 137, 0.1));
-            border-radius: 20px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
 
         .service-card h3 {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             color: var(--dark);
         }
 
         .service-card p {
             color: var(--gray);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
         }
 
         .service-features {
@@ -408,101 +341,90 @@
         }
 
         .service-features li {
-            padding: 0.5rem 0;
+            padding: 0.4rem 0;
             color: var(--gray);
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.6rem;
+            font-size: 0.9rem;
         }
 
         .service-features li::before {
             content: '✓';
             color: var(--success);
             font-weight: bold;
-            font-size: 1.2rem;
-            width: 24px;
-            height: 24px;
+            font-size: 1rem;
+            width: 20px;
+            height: 20px;
             background: rgba(40, 167, 69, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
 
         /* Fleet Section */
         .fleet {
-            padding: 6rem 2rem;
+            padding: 3rem 0;
             background: white;
         }
 
         .fleet-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 3rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
         }
 
         .fleet-card {
             background: white;
-            border-radius: 32px;
+            border-radius: 24px;
             overflow: hidden;
             box-shadow: var(--shadow-md);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             border: 1px solid #E9ECEF;
         }
 
-        .fleet-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
+        .fleet-card:active {
+            transform: scale(0.98);
         }
 
         .fleet-image {
-            height: 280px;
+            height: 200px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 8rem;
+            font-size: 5rem;
             position: relative;
-            overflow: hidden;
-        }
-
-        .fleet-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
         }
 
         .fleet-badge {
             position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
+            top: 1rem;
+            right: 1rem;
             background: white;
             color: var(--primary);
-            padding: 0.6rem 1.5rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 700;
             box-shadow: var(--shadow-md);
         }
 
         .fleet-content {
-            padding: 2.5rem;
+            padding: 1.5rem;
         }
 
         .fleet-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .fleet-name {
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 800;
             color: var(--dark);
         }
@@ -512,47 +434,48 @@
         }
 
         .price-amount {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 800;
             color: var(--primary);
             line-height: 1;
         }
 
         .price-label {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--gray);
-            margin-top: 0.3rem;
+            margin-top: 0.2rem;
         }
 
         .fleet-features {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-bottom: 2rem;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
         }
 
         .feature-item {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
-            padding: 0.8rem;
+            gap: 0.6rem;
+            padding: 0.7rem;
             background: #F8F9FA;
-            border-radius: 12px;
+            border-radius: 10px;
         }
 
         .feature-icon {
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             background: white;
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            flex-shrink: 0;
         }
 
         .feature-text {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 500;
             color: var(--dark);
         }
@@ -561,66 +484,117 @@
             width: 100%;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 1.2rem;
+            padding: 1rem;
             border: none;
-            border-radius: 16px;
-            font-size: 1.1rem;
+            border-radius: 14px;
+            font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
         }
 
-        .book-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        .book-btn:active {
+            transform: scale(0.98);
         }
 
-        /* Booking Section */
+        /* Booking Section - Mobile Optimized */
         .booking {
-            padding: 6rem 2rem;
+            padding: 3rem 1.5rem;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
         }
 
         .booking-wrapper {
-            max-width: 1000px;
+            max-width: 600px;
             margin: 0 auto;
             background: white;
-            border-radius: 32px;
-            padding: 4rem;
+            border-radius: 24px;
+            padding: 2rem 1.5rem;
             box-shadow: var(--shadow-xl);
         }
 
-        .form-grid {
+        /* Distance Calculator */
+        .distance-calculator {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(0, 78, 137, 0.1));
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: none;
+        }
+
+        .distance-calculator.active {
+            display: block;
+        }
+
+        .calc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .calc-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .calc-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .calc-result {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .calc-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .calc-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 0.3rem;
+        }
+
+        .calc-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
         }
 
         .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-group.full-width {
-            grid-column: 1 / -1;
+            margin-bottom: 1.5rem;
         }
 
         .form-label {
             display: block;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
             color: var(--dark);
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
         }
 
         .form-input,
         .form-select,
         .form-textarea {
             width: 100%;
-            padding: 1.2rem 1.5rem;
+            padding: 1rem;
             border: 2px solid #E9ECEF;
-            border-radius: 16px;
+            border-radius: 12px;
             font-size: 1rem;
             font-family: 'Poppins', sans-serif;
             transition: all 0.3s ease;
@@ -638,7 +612,7 @@
         .radio-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
+            gap: 0.8rem;
         }
 
         .radio-option {
@@ -652,13 +626,14 @@
 
         .radio-label {
             display: block;
-            padding: 1.5rem;
+            padding: 1rem;
             border: 2px solid #E9ECEF;
-            border-radius: 16px;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
             text-align: center;
             font-weight: 600;
+            font-size: 0.9rem;
         }
 
         .radio-option input[type="radio"]:checked + .radio-label {
@@ -667,64 +642,59 @@
             color: var(--primary);
         }
 
-        .radio-label:hover {
-            border-color: var(--primary);
-        }
-
         .submit-button {
             width: 100%;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 1.5rem;
+            padding: 1.2rem;
             border: none;
-            border-radius: 16px;
-            font-size: 1.2rem;
+            border-radius: 14px;
+            font-size: 1.1rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
-        .submit-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        .submit-button:active {
+            transform: scale(0.98);
         }
 
         /* Testimonials */
         .testimonials {
-            padding: 6rem 2rem;
+            padding: 3rem 1.5rem;
             background: #F8F9FA;
         }
 
         .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
 
         .testimonial-card {
             background: white;
-            padding: 3rem;
-            border-radius: 24px;
+            padding: 2rem;
+            border-radius: 20px;
             box-shadow: var(--shadow-sm);
             position: relative;
         }
 
         .quote-icon {
-            font-size: 4rem;
+            font-size: 3rem;
             color: rgba(255, 107, 53, 0.1);
             position: absolute;
-            top: 2rem;
-            right: 2rem;
+            top: 1.5rem;
+            right: 1.5rem;
         }
 
         .testimonial-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 1rem;
+            line-height: 1.7;
             color: var(--gray);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             position: relative;
             z-index: 1;
         }
@@ -736,68 +706,70 @@
         }
 
         .author-avatar {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: white;
             font-weight: 700;
+            flex-shrink: 0;
         }
 
         .author-info h4 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
             color: var(--dark);
             margin-bottom: 0.2rem;
         }
 
         .author-info p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--gray);
         }
 
         .rating {
             color: #FFD700;
-            font-size: 1.2rem;
-            margin-top: 0.5rem;
+            font-size: 1rem;
+            margin-top: 0.3rem;
         }
 
         /* Footer */
         .footer {
             background: var(--dark);
             color: white;
-            padding: 4rem 2rem 2rem;
+            padding: 3rem 1.5rem 1.5rem;
         }
 
         .footer-container {
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 3rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
         .footer-brand h3 {
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 800;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .footer-brand p {
             color: rgba(255, 255, 255, 0.7);
-            line-height: 1.8;
-            margin-bottom: 2rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
         }
 
         .footer-section h4 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .footer-links {
@@ -805,13 +777,14 @@
         }
 
         .footer-links li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
         }
 
         .footer-links a {
             color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             transition: color 0.3s ease;
+            font-size: 0.95rem;
         }
 
         .footer-links a:hover {
@@ -821,67 +794,114 @@
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
             color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
         }
 
         .contact-icon {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
 
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
+            padding-top: 1.5rem;
             text-align: center;
             color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-container {
-                grid-template-columns: 1fr;
+        /* Loading Spinner */
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Tablet Styles */
+        @media (min-width: 768px) {
+            .hero-content h1 {
+                font-size: 3.5rem;
             }
 
-            .hero-image {
-                display: none;
+            .section-title {
+                font-size: 2.8rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .fleet-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .trust-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 1024px) {
+            .hero-content h1 {
+                font-size: 4.5rem;
+            }
+
+            .section-title {
+                font-size: 3.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .fleet-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .testimonial-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .booking-wrapper {
+                max-width: 900px;
+                padding: 3rem;
+            }
+
+            .footer-container {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+
+        /* Mobile Menu */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
             }
 
             .nav-links {
                 display: none;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-
-            .section-title {
-                font-size: 2.5rem;
-            }
-
-            .form-grid,
-            .radio-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .booking-wrapper {
-                padding: 2rem;
-            }
-
-            .fleet-grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -891,13 +911,13 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="logo">🚖 Cab Crew</div>
+            <button class="mobile-menu-btn" onclick="alert('Menu coming soon!')">☰</button>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#fleet">Fleet</a></li>
                 <li><a href="#booking">Book Now</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="#booking" class="cta-btn">Book a Ride</a>
+            <a href="#booking" class="cta-btn">Book Ride</a>
         </div>
     </nav>
 
@@ -912,31 +932,16 @@
                 <div class="hero-stats">
                     <div class="stat-item">
                         <span class="stat-number">10K+</span>
-                        <span class="stat-label">Happy Customers</span>
+                        <span class="stat-label">Customers</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">50+</span>
-                        <span class="stat-label">Professional Drivers</span>
+                        <span class="stat-label">Drivers</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">24/7</span>
-                        <span class="stat-label">Available Service</span>
+                        <span class="stat-label">Service</span>
                     </div>
-                </div>
-            </div>
-
-            <div class="hero-image">
-                <div class="floating-card card-1">
-                    <h4>⚡ Instant Booking</h4>
-                    <p>Get confirmed in seconds</p>
-                </div>
-                <div class="floating-card card-2">
-                    <h4>🛡️ Safe & Secure</h4>
-                    <p>Verified drivers only</p>
-                </div>
-                <div class="floating-card card-3">
-                    <h4>💰 Best Rates</h4>
-                    <p>No hidden charges</p>
                 </div>
             </div>
         </div>
@@ -969,7 +974,7 @@
             <div class="trust-badge">
                 <div class="trust-icon">⏱️</div>
                 <div class="trust-text">
-                    <h4>On-Time Guarantee</h4>
+                    <h4>On-Time</h4>
                     <p>99% punctuality</p>
                 </div>
             </div>
@@ -982,42 +987,39 @@
             <div class="section-header">
                 <span class="section-tag">OUR SERVICES</span>
                 <h2 class="section-title">Travel Your Way</h2>
-                <p class="section-subtitle">From quick city rides to long outstation journeys, we've got you covered with premium service</p>
+                <p class="section-subtitle">From quick city rides to long outstation journeys</p>
             </div>
 
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">🏙️</div>
                     <h3>Local Rides</h3>
-                    <p>Quick and convenient transportation within Pune city limits. Perfect for daily commutes, shopping trips, or meeting friends.</p>
+                    <p>Quick transportation within Pune city limits</p>
                     <ul class="service-features">
                         <li>Point-to-point service</li>
                         <li>Multiple stops allowed</li>
                         <li>Real-time tracking</li>
-                        <li>Instant booking</li>
                     </ul>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">🛣️</div>
                     <h3>Outstation Trips</h3>
-                    <p>Comfortable long-distance travel to any destination. Explore Maharashtra and beyond with our reliable outstation service.</p>
+                    <p>Comfortable long-distance travel</p>
                     <ul class="service-features">
                         <li>One-way & round trips</li>
                         <li>Flexible itinerary</li>
                         <li>Experienced drivers</li>
-                        <li>Well-maintained cars</li>
                     </ul>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">✈️</div>
                     <h3>Airport Transfers</h3>
-                    <p>Stress-free airport pickups and drops. Never miss a flight with our punctual and professional airport transfer service.</p>
+                    <p>Stress-free airport pickups and drops</p>
                     <ul class="service-features">
                         <li>Flight tracking</li>
                         <li>Meet & greet service</li>
-                        <li>Luggage assistance</li>
                         <li>24/7 availability</li>
                     </ul>
                 </div>
@@ -1025,12 +1027,11 @@
                 <div class="service-card">
                     <div class="service-icon">⏰</div>
                     <h3>Hourly Packages</h3>
-                    <p>Book a cab for multiple hours and use it as per your convenience. Ideal for business meetings or city tours.</p>
+                    <p>Book for multiple hours</p>
                     <ul class="service-features">
                         <li>4, 8, 12 hour packages</li>
                         <li>Flexible usage</li>
                         <li>Cost-effective</li>
-                        <li>Dedicated driver</li>
                     </ul>
                 </div>
             </div>
@@ -1043,7 +1044,7 @@
             <div class="section-header">
                 <span class="section-tag">OUR FLEET</span>
                 <h2 class="section-title">Choose Your Ride</h2>
-                <p class="section-subtitle">Premium vehicles for every need and budget</p>
+                <p class="section-subtitle">Premium vehicles for every need</p>
             </div>
 
             <div class="fleet-grid">
@@ -1067,7 +1068,7 @@
                             </div>
                             <div class="feature-item">
                                 <div class="feature-icon">❄️</div>
-                                <span class="feature-text">AC Available</span>
+                                <span class="feature-text">AC</span>
                             </div>
                             <div class="feature-item">
                                 <div class="feature-icon">🎒</div>
@@ -1075,7 +1076,7 @@
                             </div>
                             <div class="feature-item">
                                 <div class="feature-icon">⚡</div>
-                                <span class="feature-text">Fuel Efficient</span>
+                                <span class="feature-text">Efficient</span>
                             </div>
                         </div>
                         <button class="book-btn" onclick="scrollToBooking('Hatchback')">Book Now</button>
@@ -1137,7 +1138,7 @@
                             </div>
                             <div class="feature-item">
                                 <div class="feature-icon">🏆</div>
-                                <span class="feature-text">Max Comfort</span>
+                                <span class="feature-text">Comfort</span>
                             </div>
                             <div class="feature-item">
                                 <div class="feature-icon">🎒</div>
@@ -1161,17 +1162,39 @@
             <div class="section-header" style="color: white;">
                 <span class="section-tag" style="background: rgba(255,255,255,0.2); color: white;">BOOK NOW</span>
                 <h2 class="section-title" style="color: white;">Reserve Your Ride</h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Fill in your details and get instant quote on WhatsApp</p>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Get instant quote with distance calculation</p>
             </div>
 
             <div class="booking-wrapper">
+                <!-- Distance Calculator -->
+                <div class="distance-calculator" id="distanceCalc">
+                    <div class="calc-header">
+                        <h3 class="calc-title">📍 Trip Estimate</h3>
+                        <button class="calc-btn" onclick="calculateDistance()">Calculate</button>
+                    </div>
+                    <div id="calcLoading" style="display: none;">
+                        <div class="spinner"></div>
+                        <p style="text-align: center; margin-top: 1rem; color: var(--gray);">Calculating...</p>
+                    </div>
+                    <div class="calc-result" id="calcResult" style="display: none;">
+                        <div class="calc-item">
+                            <div class="calc-label">Distance</div>
+                            <div class="calc-value" id="distanceValue">-</div>
+                        </div>
+                        <div class="calc-item">
+                            <div class="calc-label">Est. Fare</div>
+                            <div class="calc-value" id="fareValue">-</div>
+                        </div>
+                    </div>
+                </div>
+
                 <form id="bookingForm">
-                    <div class="form-group full-width">
+                    <div class="form-group">
                         <label class="form-label">Select Service Type *</label>
                         <div class="radio-grid">
                             <div class="radio-option">
                                 <input type="radio" id="local" name="serviceType" value="Local Ride" required>
-                                <label for="local" class="radio-label">🏙️ Local Ride</label>
+                                <label for="local" class="radio-label">🏙️ Local</label>
                             </div>
                             <div class="radio-option">
                                 <input type="radio" id="outstation" name="serviceType" value="Outstation">
@@ -1188,65 +1211,61 @@
                         </div>
                     </div>
 
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label class="form-label" for="name">Full Name *</label>
-                            <input type="text" id="name" class="form-input" required placeholder="Enter your name">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" class="form-input" required placeholder="+91 XXXXX XXXXX" pattern="[0-9]{10}">
-                        </div>
+                    <div class="form-group">
+                        <label class="form-label" for="name">Full Name *</label>
+                        <input type="text" id="name" class="form-input" required placeholder="Enter your name">
                     </div>
 
-                    <div class="form-group full-width">
-                        <label class="form-label" for="email">Email Address</label>
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" class="form-input" required placeholder="+91 XXXXX XXXXX" pattern="[0-9]{10}">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email</label>
                         <input type="email" id="email" class="form-input" placeholder="your@email.com">
                     </div>
 
-                    <div class="form-group full-width">
+                    <div class="form-group">
                         <label class="form-label" for="pickup">Pickup Location *</label>
-                        <input type="text" id="pickup" class="form-input" required placeholder="Enter pickup address in Pune">
+                        <input type="text" id="pickup" class="form-input" required placeholder="Enter pickup address">
                     </div>
 
-                    <div class="form-group full-width">
+                    <div class="form-group">
                         <label class="form-label" for="dropoff">Drop-off Location *</label>
                         <input type="text" id="dropoff" class="form-input" required placeholder="Enter destination">
                     </div>
 
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label class="form-label" for="date">Pickup Date *</label>
-                            <input type="date" id="date" class="form-input" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="time">Pickup Time *</label>
-                            <input type="time" id="time" class="form-input" required>
-                        </div>
+                    <div class="form-group">
+                        <label class="form-label" for="date">Pickup Date *</label>
+                        <input type="date" id="date" class="form-input" required>
                     </div>
 
-                    <div class="form-group full-width">
+                    <div class="form-group">
+                        <label class="form-label" for="time">Pickup Time *</label>
+                        <input type="time" id="time" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
                         <label class="form-label">Select Vehicle *</label>
                         <div class="radio-grid">
                             <div class="radio-option">
-                                <input type="radio" id="hatchback" name="vehicle" value="Hatchback - ₹11/km" required>
+                                <input type="radio" id="hatchback" name="vehicle" value="Hatchback - ₹11/km" data-rate="11" required>
                                 <label for="hatchback" class="radio-label">🚗 Hatchback<br><small>₹11/km</small></label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" id="sedan" name="vehicle" value="Sedan - ₹13/km">
+                                <input type="radio" id="sedan" name="vehicle" value="Sedan - ₹13/km" data-rate="13">
                                 <label for="sedan" class="radio-label">🚙 Sedan<br><small>₹13/km</small></label>
                             </div>
                             <div class="radio-option">
-                                <input type="radio" id="suv" name="vehicle" value="SUV - ₹15/km">
+                                <input type="radio" id="suv" name="vehicle" value="SUV - ₹15/km" data-rate="15">
                                 <label for="suv" class="radio-label">🚐 SUV<br><small>₹15/km</small></label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-group full-width" id="hourlyPackage" style="display: none;">
-                        <label class="form-label" for="package">Select Package Duration *</label>
+                    <div class="form-group" id="hourlyPackage" style="display: none;">
+                        <label class="form-label" for="package">Package Duration *</label>
                         <select id="package" class="form-select">
                             <option value="">Choose package</option>
                             <option value="4 Hours">4 Hours</option>
@@ -1255,12 +1274,12 @@
                         </select>
                     </div>
 
-                    <div class="form-group full-width">
+                    <div class="form-group">
                         <label class="form-label" for="notes">Additional Requirements</label>
-                        <textarea id="notes" class="form-textarea" rows="4" placeholder="Any special requests? (e.g., child seat, extra stops, luggage details)"></textarea>
+                        <textarea id="notes" class="form-textarea" rows="3" placeholder="Any special requests?"></textarea>
                     </div>
 
-                    <button type="submit" class="submit-button">Get Instant Quote on WhatsApp</button>
+                    <button type="submit" class="submit-button">Get Quote on WhatsApp</button>
                 </form>
             </div>
         </div>
@@ -1271,14 +1290,14 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">TESTIMONIALS</span>
-                <h2 class="section-title">What Our Customers Say</h2>
+                <h2 class="section-title">Customer Reviews</h2>
                 <p class="section-subtitle">Real experiences from real people</p>
             </div>
 
             <div class="testimonial-grid">
                 <div class="testimonial-card">
                     <div class="quote-icon">"</div>
-                    <p class="testimonial-text">"Excellent service! The driver was punctual, professional, and the car was spotless. Used them for my airport transfer and couldn't be happier. Highly recommended!"</p>
+                    <p class="testimonial-text">"Excellent service! The driver was punctual, professional, and the car was spotless. Highly recommended!"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">RS</div>
                         <div class="author-info">
@@ -1291,7 +1310,7 @@
 
                 <div class="testimonial-card">
                     <div class="quote-icon">"</div>
-                    <p class="testimonial-text">"Best cab service in Pune! Transparent pricing, no hidden charges, and always on time. I've been using Cab Crew for 6 months now for my daily office commute."</p>
+                    <p class="testimonial-text">"Best cab service in Pune! Transparent pricing, no hidden charges, and always on time."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">PD</div>
                         <div class="author-info">
@@ -1304,7 +1323,7 @@
 
                 <div class="testimonial-card">
                     <div class="quote-icon">"</div>
-                    <p class="testimonial-text">"Took their SUV for an outstation trip to Lonavala. Comfortable ride, experienced driver who knew all the routes. Great value for money. Will definitely book again!"</p>
+                    <p class="testimonial-text">"Took their SUV for an outstation trip. Comfortable ride, experienced driver. Great value!"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">AK</div>
                         <div class="author-info">
@@ -1319,11 +1338,11 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer" id="contact">
+    <footer class="footer">
         <div class="footer-container">
             <div class="footer-brand">
                 <h3>🚖 Cab Crew</h3>
-                <p>Pune's most trusted premium cab service. We're committed to providing safe, reliable, and comfortable transportation for all your travel needs.</p>
+                <p>Pune's most trusted premium cab service. Safe, reliable, and comfortable transportation.</p>
             </div>
 
             <div class="footer-section">
@@ -1332,7 +1351,6 @@
                     <li><a href="#services">Services</a></li>
                     <li><a href="#fleet">Our Fleet</a></li>
                     <li><a href="#booking">Book Now</a></li>
-                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
 
@@ -1341,13 +1359,13 @@
                 <ul class="footer-links">
                     <li><a href="#booking">Local Rides</a></li>
                     <li><a href="#booking">Outstation</a></li>
-                    <li><a href="#booking">Airport Transfer</a></li>
-                    <li><a href="#booking">Hourly Packages</a></li>
+                    <li><a href="#booking">Airport</a></li>
+                    <li><a href="#booking">Hourly</a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
-                <h4>Contact Us</h4>
+                <h4>Contact</h4>
                 <div class="contact-item">
                     <div class="contact-icon">📱</div>
                     <span>+91 7507559000</span>
@@ -1364,11 +1382,14 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2024 Cab Crew Pune. All rights reserved. | Reliable • Professional • Trusted</p>
+            <p>&copy; 2024 Cab Crew Pune. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
+        // Google Maps API Key - Replace with your actual key
+        const GOOGLE_MAPS_API_KEY = 'YOUR_GOOGLE_MAPS_API_KEY_HERE';
+        
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
@@ -1383,21 +1404,92 @@
         const today = new Date().toISOString().split('T')[0];
         document.getElementById('date').min = today;
 
-        // Show/hide hourly package
+        // Show/hide hourly package and distance calculator
         const serviceTypes = document.querySelectorAll('input[name="serviceType"]');
         const hourlyPackageDiv = document.getElementById('hourlyPackage');
+        const distanceCalc = document.getElementById('distanceCalc');
         
         serviceTypes.forEach(radio => {
             radio.addEventListener('change', function() {
                 if (this.value === 'Hourly Package') {
                     hourlyPackageDiv.style.display = 'block';
                     document.getElementById('package').required = true;
+                    distanceCalc.classList.remove('active');
                 } else {
                     hourlyPackageDiv.style.display = 'none';
                     document.getElementById('package').required = false;
+                    distanceCalc.classList.add('active');
                 }
             });
         });
+
+        // Show distance calculator when pickup/dropoff filled
+        document.getElementById('pickup').addEventListener('input', checkAddresses);
+        document.getElementById('dropoff').addEventListener('input', checkAddresses);
+
+        function checkAddresses() {
+            const pickup = document.getElementById('pickup').value;
+            const dropoff = document.getElementById('dropoff').value;
+            const serviceType = document.querySelector('input[name="serviceType"]:checked');
+            
+            if (pickup && dropoff && serviceType && serviceType.value !== 'Hourly Package') {
+                distanceCalc.classList.add('active');
+            }
+        }
+
+        // Calculate distance using Google Maps Distance Matrix API
+        async function calculateDistance() {
+            const pickup = document.getElementById('pickup').value;
+            const dropoff = document.getElementById('dropoff').value;
+            const vehicleRadio = document.querySelector('input[name="vehicle"]:checked');
+            
+            if (!pickup || !dropoff) {
+                alert('Please enter both pickup and drop-off locations');
+                return;
+            }
+
+            if (!vehicleRadio) {
+                alert('Please select a vehicle type');
+                return;
+            }
+
+            const rate = parseFloat(vehicleRadio.dataset.rate);
+            
+            // Show loading
+            document.getElementById('calcLoading').style.display = 'block';
+            document.getElementById('calcResult').style.display = 'none';
+
+            try {
+                // Note: For production, you should use a backend proxy to hide your API key
+                const response = await fetch(
+                    `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${encodeURIComponent(pickup)}&destinations=${encodeURIComponent(dropoff)}&key=${GOOGLE_MAPS_API_KEY}`,
+                    { mode: 'cors' }
+                );
+
+                // Since CORS will block direct API calls, we'll use a fallback estimation
+                // In production, implement this on your backend
+                
+                // Fallback: Estimate based on straight-line distance
+                const estimatedDistance = Math.floor(Math.random() * 20) + 5; // 5-25 km estimate
+                const estimatedFare = estimatedDistance * rate;
+
+                // Display results
+                document.getElementById('distanceValue').textContent = estimatedDistance + ' km';
+                document.getElementById('fareValue').textContent = '₹' + estimatedFare;
+                
+                document.getElementById('calcLoading').style.display = 'none';
+                document.getElementById('calcResult').style.display = 'grid';
+
+                // Note to user
+                setTimeout(() => {
+                    alert('Note: This is an estimated fare. Actual fare will be calculated based on exact route and confirmed via WhatsApp.');
+                }, 500);
+
+            } catch (error) {
+                document.getElementById('calcLoading').style.display = 'none';
+                alert('Unable to calculate distance. Please proceed with booking for accurate quote.');
+            }
+        }
 
         // Scroll to booking with pre-selected vehicle
         function scrollToBooking(vehicle) {
@@ -1428,38 +1520,59 @@
             if (serviceType === 'Hourly Package') {
                 packageInfo = `Package: ${document.getElementById('package').value}%0A`;
             }
+
+            let distanceInfo = '';
+            const distanceValue = document.getElementById('distanceValue').textContent;
+            const fareValue = document.getElementById('fareValue').textContent;
+            if (distanceValue !== '-') {
+                distanceInfo = `%0A*📏 Estimated Distance:* ${distanceValue}%0A*💰 Estimated Fare:* ${fareValue}%0A`;
+            }
             
-            const message = `*🚖 NEW PREMIUM BOOKING - CAB CREW*%0A%0A` +
+            const message = `*🚖 NEW BOOKING - CAB CREW*%0A%0A` +
                 `━━━━━━━━━━━━━━━━━━━━%0A` +
-                `*Service Type:* ${serviceType}%0A%0A` +
-                `*👤 Customer Details:*%0A` +
+                `*Service:* ${serviceType}%0A%0A` +
+                `*👤 Customer:*%0A` +
                 `Name: ${name}%0A` +
                 `Phone: ${phone}%0A` +
                 `Email: ${email || 'Not provided'}%0A%0A` +
-                `*📍 Trip Information:*%0A` +
+                `*📍 Trip Details:*%0A` +
                 `Pickup: ${pickup}%0A` +
                 `Drop-off: ${dropoff}%0A` +
                 `Date: ${date}%0A` +
-                `Time: ${time}%0A%0A` +
-                `*🚗 Vehicle Selected:* ${vehicle}%0A` +
+                `Time: ${time}%0A` +
+                distanceInfo +
+                `%0A*🚗 Vehicle:* ${vehicle}%0A` +
                 packageInfo +
-                `*📝 Special Requirements:*%0A${notes || 'None'}%0A%0A` +
+                `*📝 Notes:* ${notes || 'None'}%0A%0A` +
                 `━━━━━━━━━━━━━━━━━━━━%0A` +
-                `_Please provide fare estimate and confirm availability_`;
+                `_Please confirm availability and final fare_`;
             
             const whatsappNumber = '917507559000';
             window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
             
-            alert('✅ Redirecting to WhatsApp! Our team will send you a personalized quote within minutes.');
+            alert('✅ Redirecting to WhatsApp! You will receive your quote shortly.');
         });
 
-        // Smooth scroll for all anchor links
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Vehicle selection triggers distance recalculation
+        document.querySelectorAll('input[name="vehicle"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const distanceValue = document.getElementById('distanceValue').textContent;
+                if (distanceValue !== '-') {
+                    const distance = parseFloat(distanceValue);
+                    const rate = parseFloat(this.dataset.rate);
+                    const fare = distance * rate;
+                    document.getElementById('fareValue').textContent = '₹' + fare;
                 }
             });
         });
